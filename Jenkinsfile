@@ -6,14 +6,14 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compiling Java Program...'
-                bat 'javac AddNumbers.java'
+                bat 'javac SubNumbers.java'
             }
         }
 
         stage('Run') {
             steps {
                 echo 'Running Java Program...'
-                bat 'java AddNumbers'
+                bat 'java SubNumbers'
             }
         }
     }
