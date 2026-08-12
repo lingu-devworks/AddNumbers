@@ -6,10 +6,10 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'javac SubNumbers.java'
-                        sh 'java SubNumbers'
+                        sh 'javac Multiple.java'
+                        sh 'java Multiple'
                     } else {
-                        bat 'javac SubNumbers.java && java SubNumbers'
+                        bat 'javac Multiple.java && java Multiple'
                     }
                 }
             }
