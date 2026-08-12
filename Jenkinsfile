@@ -2,29 +2,17 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Compile') {
+        stage('Build') {
             steps {
-                echo 'Compiling Java Program...'
-                bat 'javac MultipleNumbers.java'
+                script {
+                    if (isUnix()) {
+                        sh 'javac division.java'
+                        sh 'java division'
+                    } else {
+                        bat 'javac division.java && java division'
+                    }
+                }
             }
-        }
-
-        stage('Run') {
-            steps {
-                echo 'Running Java Program...'
-                bat 'java MultipleNumbers'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build Successful!'
-        }
-
-        failure {
-            echo 'Build Failed!'
         }
     }
 }
