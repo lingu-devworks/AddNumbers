@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile and Run') {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'javac division.java'
-                        sh 'java division'
+                        sh 'javac SubNumbers.java'
+                        sh 'java SubNumbers'
                     } else {
-                        bat 'javac division.java && java division'
+                        bat 'javac SubNumbers.java && java SubNumbers'
                     }
                 }
             }
